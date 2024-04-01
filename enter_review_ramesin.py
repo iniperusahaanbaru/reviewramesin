@@ -5,8 +5,6 @@ import json
 import io
 import datetime
 
-# Load environment variables
-load_dotenv()
 
 # Google Cloud configuration
 BUCKET_NAME = "fotorestoran"
