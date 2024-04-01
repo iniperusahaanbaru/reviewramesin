@@ -4,6 +4,7 @@ from google.oauth2 import service_account
 import json
 import io
 import datetime
+import copy
 
 
 # Google Cloud configuration
