@@ -1,7 +1,6 @@
 import streamlit as st
 from google.cloud import storage, firestore
 from google.oauth2 import service_account
-from dotenv import load_dotenv
 import json
 import io
 import datetime
