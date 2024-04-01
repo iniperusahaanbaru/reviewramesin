@@ -13,16 +13,17 @@ FIRESTORE_COLLECTION = "reviews"
 
 # Initialize Google Cloud clients using environment variables
 credentials_dict = {
-    'type': st.secrets['some']['type'],
-    'project_id': st.secrets['some']['project_id'],
-    'private_key_id': st.secrets['some']['private_key_id'],
-    'private_key': st.secrets['some']['private_key'].replace('\\n', '\n'),
-    'client_email': st.secrets['some']['client_email'],
-    'client_id': st.secrets['some']['client_id'],
-    'auth_uri': st.secrets['some']['auth_uri'],
-    'token_uri': st.secrets['some']['token_uri'],
-    'auth_provider_x509_cert_url': st.secrets['some']['auth_provider_x509_cert_url'],
-    'client_x509_cert_url': st.secrets['some']['client_x509_cert_url'],
+    'type': st.secrets['GOOGLE_CREDENTIALS_JSON']['type'],
+    'project_id': st.secrets['GOOGLE_CREDENTIALS_JSON']['project_id'],
+    'private_key_id': st.secrets['GOOGLE_CREDENTIALS_JSON']['private_key_id'],
+    # Ensure the private_key's newline characters are handled correctly
+    'private_key': st.secrets['GOOGLE_CREDENTIALS_JSON']['private_key'].replace('\\n', '\n'),
+    'client_email': st.secrets['GOOGLE_CREDENTIALS_JSON']['client_email'],
+    'client_id': st.secrets['GOOGLE_CREDENTIALS_JSON']['client_id'],
+    'auth_uri': st.secrets['GOOGLE_CREDENTIALS_JSON']['auth_uri'],
+    'token_uri': st.secrets['GOOGLE_CREDENTIALS_JSON']['token_uri'],
+    'auth_provider_x509_cert_url': st.secrets['GOOGLE_CREDENTIALS_JSON']['auth_provider_x509_cert_url'],
+    'client_x509_cert_url': st.secrets['GOOGLE_CREDENTIALS_JSON']['client_x509_cert_url'],
 }
 
 # Create a credentials object from the service account info
