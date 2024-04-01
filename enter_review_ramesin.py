@@ -11,12 +11,12 @@ BUCKET_NAME = "fotorestoran"
 FIRESTORE_COLLECTION = "reviews"
 
 # Initialize Google Cloud clients using environment variables
-credentials_dict = st.secrets['some']
+credentials_dict = copy.deepcopy(st.secrets['some'])
 
-# The private_key in your credentials might need to have its escaped newlines replaced with actual newline characters
+# Now you can safely modify 'private_key' in your copy of the credentials
 credentials_dict['private_key'] = credentials_dict['private_key'].replace('\\n', '\n')
 
-# Create a credentials object from the service account info
+# Proceed to create the credentials object
 credentials = service_account.Credentials.from_service_account_info(credentials_dict)
 
 # Initialize Google Cloud clients with the credentials
