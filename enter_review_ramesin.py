@@ -2,7 +2,6 @@ import streamlit as st
 from google.cloud import storage, firestore
 from google.oauth2 import service_account
 from dotenv import load_dotenv
-import os
 import json
 import io
 import datetime
@@ -15,7 +14,7 @@ BUCKET_NAME = "fotorestoran"
 FIRESTORE_COLLECTION = "reviews"
 
 # Initialize Google Cloud clients using environment variables
-credentials_raw = os.getenv('GOOGLE_CREDENTIALS_JSON')
+credentials_raw = st.secrets['GOOGLE_CREDENTIALS_JSON']
 if credentials_raw is None:
     raise ValueError("Google Cloud credentials not found in environment variables.")
 credentials_dict = json.loads(credentials_raw)
