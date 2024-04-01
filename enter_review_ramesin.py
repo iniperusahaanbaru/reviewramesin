@@ -13,6 +13,9 @@ FIRESTORE_COLLECTION = "reviews"
 # Initialize Google Cloud clients using environment variables
 credentials_dict = st.secrets['some']
 
+# The private_key in your credentials might need to have its escaped newlines replaced with actual newline characters
+credentials_dict['private_key'] = credentials_dict['private_key'].replace('\\n', '\n')
+
 # Create a credentials object from the service account info
 credentials = service_account.Credentials.from_service_account_info(credentials_dict)
 
