@@ -15,11 +15,12 @@ FIRESTORE_COLLECTION = "reviews"
 
 # Initialize Google Cloud clients using environment variables
 credentials_raw = st.secrets['GOOGLE_CREDENTIALS_JSON']
-if credentials_raw is None:
-    raise ValueError("Google Cloud credentials not found in environment variables.")
-credentials_dict = json.loads(credentials_raw)
+credentials_dict = json.loads(credentials_raw)  # Load the JSON string into a Python dictionary
+
+# Create credentials object from the dictionary
 credentials = service_account.Credentials.from_service_account_info(credentials_dict)
 
+# Initialize Google Cloud clients
 storage_client = storage.Client(credentials=credentials)
 firestore_db = firestore.Client(credentials=credentials)
 
