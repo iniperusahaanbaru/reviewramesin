@@ -11,15 +11,14 @@ BUCKET_NAME = "fotorestoran"
 FIRESTORE_COLLECTION = "reviews"
 
 # Initialize Google Cloud clients using environment variables
-credentials_raw = st.secrets['GOOGLE_CREDENTIALS_JSON']
-credentials_dict = json.loads(credentials_raw)  # Load the JSON string into a Python dictionary
+credentials_dict = st.secrets['some']
 
-# Create credentials object from the dictionary
+# Create a credentials object from the service account info
 credentials = service_account.Credentials.from_service_account_info(credentials_dict)
 
-# Initialize Google Cloud clients
+# Initialize Google Cloud clients with the credentials
 storage_client = storage.Client(credentials=credentials)
-firestore_db = firestore.Client(credentials=credentials)
+firestore_db = firestore.Client(project=credentials_dict['project_id'], credentials=credentials)
 
 def upload_image_to_gcs(image_content, destination_blob_name):
     """
