@@ -84,15 +84,15 @@ def main():
     st.title('Masukan Review Untuk RAMESINDONG :-)')
     st.title('\n')
     st.title('\n')
-    # Initialize 'show_result' in session state if it doesn't exist
-    if 'show_result' not in st.session_state:
-        st.session_state.show_result = False
+    # Initialize 'show_result' in session state if it doesn't existif 'show_result' not in st.session_state:
+    st.session_state['show_result'] = False
 
     if not st.session_state.show_result:
         submit_button, order_id, image, review_text, reviewer_name, rating = show_submission_form()
-
+    
         if submit_button:
-            if order_id and image is not None and review_text and reviewer_name and rating and order_id == "devay123" or order_id == "Devay123" or order_id == "DEVAY123":
+            # Simplify the order_id check using lower() for case-insensitive comparison
+            if order_id.lower() == "devay123" and image is not None and review_text and reviewer_name and rating:
                 # Generate a signed URL for the image uploaded to GCS
                 destination_blob_name = f"reviews/{order_id}/{datetime.datetime.now().isoformat()}.jpg"
                 image_url = upload_image_to_gcs(image, destination_blob_name)
@@ -105,14 +105,19 @@ def main():
                 st.session_state.submitted_review = review_text
                 
                 # Rerun to show the result page
-                st.rerun()
+                st.experimental_rerun()
             else:
-                st.error("order id salah")
+                st.error("Invalid order ID. Please check and try again.")
     else:
-        # Display the result
         st.success("Review submitted successfully!")
         st.image(st.session_state.submitted_image, caption='Uploaded/Captured Meal Image', use_column_width=True)
         st.write("Your Review:", st.session_state.submitted_review)
+    
+    # Conditional redirection - Assuming this is meant for some logical condition not demonstrated in the snippet provided.
+    # For a direct instruction to visit another website, it's usually better placed outside the main logic or as part of the result display.
+    # This example assumes you want to provide a link after the result is displayed or in some specific condition.
+    st.markdown("Klik disini untuk liat review nya! [Review Ramesindong](https://reviewramesindong.streamlit.app/)")
+
 
         if st.button("Submit Another Review"):
             # Clear the session state for a new submission
