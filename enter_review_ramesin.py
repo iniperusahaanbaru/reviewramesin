@@ -119,14 +119,14 @@ def main():
     st.markdown("Klik disini untuk liat review nya! [Review Ramesindong](https://reviewramesindong.streamlit.app/)")
 
 
-        if st.button("Submit Another Review"):
-            # Clear the session state for a new submission
-            st.session_state.show_result = False
-            del st.session_state['submitted_image']
-            del st.session_state['submitted_review']
+    if st.button("Submit Another Review"):
+        # Clear the session state for a new submission
+        st.session_state.show_result = False
+        del st.session_state['submitted_image']
+        del st.session_state['submitted_review']
 
-            # Rerun to reset the app
-            st.rerun()
+        # Rerun to reset the app
+        st.rerun()
 
 if __name__ == "__main__":
     main()
