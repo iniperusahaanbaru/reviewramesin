@@ -116,7 +116,7 @@ def main():
     # Conditional redirection - Assuming this is meant for some logical condition not demonstrated in the snippet provided.
     # For a direct instruction to visit another website, it's usually better placed outside the main logic or as part of the result display.
     # This example assumes you want to provide a link after the result is displayed or in some specific condition.
-    st.markdown("Klik disini untuk liat review nya! [Review Ramesindong](https://reviewramesindong.streamlit.app/)")
+    st.markdown("Klik disini untuk liat review nya! [Review Ramesindong](https://reviewbookramesindong.streamlit.app/)")
 
 
     if st.button("Submit Another Review"):
