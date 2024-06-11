@@ -46,7 +46,7 @@ def store_review_in_firestore(review_text, image_url, reviewer_name, rating):
         "review_text": review_text,
         "image_url": image_url,
         "timestamp": firestore.SERVER_TIMESTAMP,
-        "restoran_name": "Restoran Tes",
+        "restoran_name": "Restoran Tes1",
         "reviewer_name": reviewer_name,
         "rating": rating
     })
