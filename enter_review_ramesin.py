@@ -88,12 +88,6 @@ def main():
     else:
         st.success("Your review has been sent!")
         st.markdown("Klik disini untuk liat review nya! [Review Ramesindong](https://reviewbookramesindong.streamlit.app/)")
-        if st.button("See Review"):
-            # Redirect to the provided URL
-            js = "window.location.href = 'https://reviewbookramesindong.streamlit.app/';"
-            html = f'<script>{js}</script>'
-            st.markdown(html, unsafe_allow_html=True)
-
         if st.button("Submit Another Review"):
             st.session_state.show_result = False
             st.rerun()
