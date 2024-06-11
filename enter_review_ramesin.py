@@ -94,13 +94,9 @@ def main():
             html = f'<script>{js}</script>'
             st.markdown(html, unsafe_allow_html=True)
 
-
         if st.button("Submit Another Review"):
-            st.session_state.show_result = False        
+            st.session_state.show_result = False
+            st.rerun()
 
-    
 if __name__ == "__main__":
     main()
-
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
-Editing reviewramesin/enter_review_ramesin.py at main · iniperusahaanbaru/reviewramesin
