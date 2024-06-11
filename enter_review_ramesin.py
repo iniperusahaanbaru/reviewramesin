@@ -65,7 +65,7 @@ def store_review_in_firestore(review_text, image_url, reviewer_name, rating):
         "review_text": review_text,
         "image_url": image_url,
         "timestamp": firestore.SERVER_TIMESTAMP,
-        "restoran_name": "Restoran Ramesin",
+        "restoran_name": "Restoran Tes",
         "reviewer_name": reviewer_name,  # Include the reviewer's name
         "rating": rating  # Include the rating
     })
@@ -81,7 +81,7 @@ def show_submission_form():
         return submit_button, order_id, image, review_text, reviewer_name, rating
 
 def main():
-    st.title('Masukan Review Untuk RAMESINDONG :-)')
+    st.title('Masukan Review Untuk Tes123 :-)')
     st.title('\n')
     st.title('\n')
     # Initialize 'show_result' in session state if it doesn't existif 'show_result' not in st.session_state:
@@ -92,7 +92,7 @@ def main():
     
         if submit_button:
             # Simplify the order_id check using lower() for case-insensitive comparison
-            if order_id.lower() == "devay123" and image is not None and review_text and reviewer_name and rating:
+            if order_id.lower() == "tes123" and image is not None and review_text and reviewer_name and rating:
                 # Generate a signed URL for the image uploaded to GCS
                 destination_blob_name = f"reviews/{order_id}/{datetime.datetime.now().isoformat()}.jpg"
                 image_url = upload_image_to_gcs(image, destination_blob_name)
@@ -112,6 +112,7 @@ def main():
         st.success("Review submitted successfully!")
         st.image(st.session_state.submitted_image, caption='Uploaded/Captured Meal Image', use_column_width=True)
         st.write("Your Review:", st.session_state.submitted_review)
+        st.rerun()
     
     # Conditional redirection - Assuming this is meant for some logical condition not demonstrated in the snippet provided.
     # For a direct instruction to visit another website, it's usually better placed outside the main logic or as part of the result display.
